@@ -25,15 +25,10 @@ namespace OT.Assessment.App.Controllers
     public async Task<ActionResult<BaseResponseDTO>> CreateWager(WagerPublishDTO wagerPublishDTO)
     {
       var Response = await _service.CreateWager(wagerPublishDTO);
-      if (Response == null)
+      if (!Response.IsSuccess)
       {
-        Response.IsSuccess = false;
-        Response.Message = "Error Adding Wager";
         return BadRequest(Response);
       }
-
-      Response.Result = Response;
-
       return Ok(Response);
     }
 
