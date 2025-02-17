@@ -1,5 +1,5 @@
 ﻿using OT.Assessment.App.AsyncDataServices.Interfaces;
-using OT.Assessment.App.Models.DTOs;
+using OT.Assessment.App.Models;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
@@ -18,7 +18,9 @@ namespace OT.Assessment.App.AsyncDataServices
       var factory = new ConnectionFactory()
       {
         HostName = _configuration["RabbitMQHost"],
-        Port = int.Parse(_configuration["RabbitMQPort"])
+        Port = int.Parse(_configuration["RabbitMQPort"]),
+        UserName = _configuration["RabbitMQUser"],
+        Password = _configuration["RabbitMQPassword"]
       };
 
       try
@@ -39,7 +41,7 @@ namespace OT.Assessment.App.AsyncDataServices
       }
     }
 
-    public void PublishNewWager(WagerPublishDTO platformPublishedDto)
+    public void PublishNewWager(CasinoWager platformPublishedDto)
     {
       var message = JsonSerializer.Serialize(platformPublishedDto);
 

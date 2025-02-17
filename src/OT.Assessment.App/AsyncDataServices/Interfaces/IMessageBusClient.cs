@@ -1,9 +1,9 @@
-﻿using OT.Assessment.App.Models.DTOs;
+﻿using OT.Assessment.App.Models;
 
 namespace OT.Assessment.App.AsyncDataServices.Interfaces
 {
   public interface IMessageBusClient
   {
-    void PublishNewWager(WagerPublishDTO platformPublishedDto);
+    void PublishNewWager(CasinoWager platformPublishedDto);
   }
 }
