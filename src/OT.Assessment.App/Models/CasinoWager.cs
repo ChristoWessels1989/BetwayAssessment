@@ -4,6 +4,7 @@ namespace OT.Assessment.App.Models
 {
   public class CasinoWager
   {
+    [Key]
     [Required]
     public Guid WagerId { get; set; }
     [Required]
