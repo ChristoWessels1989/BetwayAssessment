@@ -4,5 +4,29 @@
         <name>OT.Assessment.App</name>
     </assembly>
     <members>
+        <member name="T:OT.Assessment.App.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:OT.Assessment.App.Migrations.removedFKlinkfromprovider">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.removedFKlinkfromprovider.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.removedFKlinkfromprovider.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.removedFKlinkfromprovider.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

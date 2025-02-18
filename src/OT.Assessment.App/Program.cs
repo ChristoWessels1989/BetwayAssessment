@@ -3,10 +3,15 @@ using OT.Assessment.App.AsyncDataServices;
 using System.Reflection;
 using OT.Assessment.App.Services.Interfaces;
 using OT.Assessment.App.Services;
+using OT.Assessment.App.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-
+builder.Services.AddDbContext<AppDBContext>(option =>
+{
+  option.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection"));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckl
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
@@ -38,5 +43,19 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+ApplyMigration(); // Apply Data Migrations here 
 app.Run();
+
+//Data migration
+void ApplyMigration()
+{
+  using (var scope = app.Services.CreateScope())
+  {
+    var _db = scope.ServiceProvider.GetRequiredService<AppDBContext>();
+
+    if (_db.Database.GetPendingMigrations().Any())
+    {
+      _db.Database.Migrate();
+    }
+  }
+}
