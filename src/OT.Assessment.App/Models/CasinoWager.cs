@@ -36,5 +36,11 @@ namespace OT.Assessment.App.Models
     public string SessionData { get; set; }
     [Required]
     public long Duration { get; set; }
+
+    //relationships
+    public virtual Player Player { get; set; }
+    public virtual Provider GameProvider { get; set; }
+    public virtual Game Game { get; set; }
+
   }
 }

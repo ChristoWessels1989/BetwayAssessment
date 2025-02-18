@@ -4,5 +4,8 @@
   {
     public Guid AccountId { get; set; }
     public string Username { get; set; }
+
+    //relationships
+  public virtual ICollection<CasinoWager> CasinoWagers {  get; set; }
   }
 }
