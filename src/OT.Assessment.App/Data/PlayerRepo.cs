@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using OT.Assessment.App.Data.Interface;
 using OT.Assessment.App.Extensions;
 using OT.Assessment.App.Models;

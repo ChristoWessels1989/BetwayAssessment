@@ -28,5 +28,17 @@
         <member name="M:OT.Assessment.App.Migrations.removedFKlinkfromprovider.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:OT.Assessment.App.Migrations.AddChangesToDb">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.AddChangesToDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.AddChangesToDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:OT.Assessment.App.Migrations.AddChangesToDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

@@ -1,4 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
+using OT.Assessment.Consumer.AsyncDataServices;
+using OT.Assessment.Consumer.Data;
+using OT.Assessment.Consumer.Data.Interface;
+using OT.Assessment.Consumer.EventProcessing.Interfaces;
+using OT.Assessment.Consumer.EventProcessing;
+using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration(config =>
@@ -9,8 +16,16 @@ var host = Host.CreateDefaultBuilder(args)
     })
     .ConfigureServices((context, services) =>
     {
-        //configure services
-      
+      //configure services
+      services.AddDbContext<AppDBContext>(opt => opt.UseSqlServer(context.Configuration.GetConnectionString("DatabaseConnection")));
+      services.AddHostedService<MessageBusSubscriber>();
+      services.AddScoped<ICasinoWagerRepo, CasinoWagerRepo>();
+      services.AddScoped<IPlayerRepo, PlayerRepo>();
+      services.AddScoped<IGameRepo, GameRepo>();
+      services.AddScoped<IProviderRepo, ProviderRepo>();
+      services.AddSingleton<IEventProcessor, EventProcessor>();
+      services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
     })
     .Build();
 

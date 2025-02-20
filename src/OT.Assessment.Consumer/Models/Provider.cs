@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OT.Assessment.App.Models
+namespace OT.Assessment.Consumer.Models
 {
   public class Provider
   {

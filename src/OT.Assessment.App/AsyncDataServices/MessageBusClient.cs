@@ -41,9 +41,9 @@ namespace OT.Assessment.App.AsyncDataServices
       }
     }
 
-    public void PublishNewWager(CasinoWager platformPublishedDto)
+    public void PublishNewWager(CasinoWager casinoWager)
     {
-      var message = JsonSerializer.Serialize(platformPublishedDto);
+      var message = JsonSerializer.Serialize(casinoWager);
 
       if (_connection.IsOpen)
       {

@@ -5,6 +5,7 @@ using OT.Assessment.App.Services.Interfaces;
 using OT.Assessment.App.Services;
 using OT.Assessment.App.Data;
 using Microsoft.EntityFrameworkCore;
+using OT.Assessment.App.Data.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDBContext>(option =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen(options =>
