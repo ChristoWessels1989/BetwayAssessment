@@ -9,6 +9,8 @@ namespace OT.Assessment.App.Profiles
     public PlayerProfile()
     {
       CreateMap<WagerPublishDTO, CasinoWager>();
+      CreateMap<CasinoWager, WagerResultDTO>();
+      CreateMap<PagedList<CasinoWager>, PagedList<WagerResultDTO>>();
 
     }
   }

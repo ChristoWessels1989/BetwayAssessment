@@ -35,16 +35,26 @@ namespace OT.Assessment.App.Controllers
 
     //GET api/player/{playerId}/wagers
     [HttpGet("{playerId}/casino")]
-    public async Task<ActionResult<BaseResponseDTO>> GetPlayerWagers(int pageNumber = 1, int pageSize = 10)
+    public async Task<ActionResult<BaseResponseDTO>> GetPlayerWagers(Guid playerId,int pageNumber = 1, int pageSize = 10)
     {
-      return Ok();
+      var Response = await _service.GetCasinoWagersForPlayer(playerId, pageNumber, pageSize);
+      if (!Response.IsSuccess)
+      {
+        return BadRequest(Response);
+      }
+      return Ok(Response);
 
     }
     //GET api/player/topSpenders?count=10
     [HttpGet("topSpenders")]
-    public async Task<ActionResult<BaseResponseDTO>> GetPlayerWagers(int count = 10)
+    public async Task<ActionResult<BaseResponseDTO>> getTopSpenderstTopSpenders(int count = 10)
     {
-      return Ok();
+      var Response = await _service.getTopSpenderstTopSpenders(count);
+      if (!Response.IsSuccess)
+      {
+        return BadRequest(Response);
+      }
+      return Ok(Response);
 
     }
   }

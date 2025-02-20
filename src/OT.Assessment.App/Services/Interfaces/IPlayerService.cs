@@ -6,5 +6,9 @@ namespace OT.Assessment.App.Services.Interfaces
   {
     Task<BaseResponseDTO> CreateWager(WagerPublishDTO wagerPublishDTO);
 
+    Task<BaseResponseDTO> getTopSpenderstTopSpenders(int count);
+    Task<BaseResponseDTO> GetCasinoWagersForPlayer(Guid AccountID, int pageNumber = 1, int pageSize = 10);
+
+
   }
 }

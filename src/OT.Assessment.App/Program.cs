@@ -10,9 +10,10 @@ using OT.Assessment.App.Data.Interface;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDBContext>(option =>
-{
-  option.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection"));
-});
+
+  option.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")),
+  ServiceLifetime.Scoped);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckl
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
